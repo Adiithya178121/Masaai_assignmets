@@ -1,0 +1,32 @@
+const studentsProgress = [
+  { name: "Ramesh", completedLessons: 40, totalLessons: 50 },
+  { name: "Sita", completedLessons: 25, totalLessons: 50 },
+  { name: "Manoj", completedLessons: 30, totalLessons: 60 },
+  { name: "Pooja", completedLessons: 48, totalLessons: 50 },
+  { name: "Anil", completedLessons: 15, totalLessons: 50 }
+];
+// step 1 : filter the students who have completed atleast 50% of the course by using filter higher order function 
+let above_50 = studentsProgress.filter((item) => {
+    if ((item.completedLessons/item.totalLessons * 100 )  >= 50){
+        return item
+    }
+})
+console.log(above_50)
+// step 2 : Mapping to calculate the students completion percentage uisng map higher order fnction.
+let mapping = studentsProgress.map((item) =>{
+    return (item.completedLessons/item.totalLessons) * 100
+})
+console.log(mapping)
+
+// step 3 : using Reduce higher order function to find the average completion percentage of all active students.
+mapping = mapping.reduce((total,item) => total + item,0)/mapping.length
+console.log(mapping)
+
+ //step 4 : Filtering students who have more than 80% completion to get a list of top learners using filter higher order function.
+ 
+ let above_80 = studentsProgress.filter((item) =>{ 
+     if((item.completedLessons/item.totalLessons * 100 ) >= 80){
+        return item
+     }
+ })
+ console.log(above_80)

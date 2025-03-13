@@ -1,0 +1,24 @@
+const movies = [
+  { title: "Drishyam", genre: "Thriller", rating: 8.5, watchTime: 140 },
+  { title: "Lagaan", genre: "Drama", rating: 8.1, watchTime: 180 },
+  { title: "Dangal", genre: "Sports", rating: 8.3, watchTime: 161 },
+  { title: "Gully Boy", genre: "Musical", rating: 7.4, watchTime: 130 },
+  { title: "Kabir Singh", genre: "Romance", rating: 6.9, watchTime: 150 }
+];
+// Mapping to convert watchTime from minutes to hours using map higher order function 
+let min_to_hrs = movies.map(item => {
+    item.watchTime = ((item.watchTime)/60).toFixed(2) 
+    return item
+})
+console.log(min_to_hrs)
+// Filtering movies with a rating above 7.5 with higer order function
+let filterd_movies = min_to_hrs.filter(item =>{
+    item = item.rating > 7.5
+    return item
+})
+console.log(filterd_movies)
+
+// using Reduce higher order function to find the total watch time of all highly-rated movies.
+ let tot_watchtime = filterd_movies.reduce((total,item) =>{
+     total += Number(item.watchTime)
+     return total

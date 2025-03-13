@@ -1,0 +1,16 @@
+const athletes = [
+  { name: "Virat", sport: "Cricket", scores: [89, 75, 102], age: 35 },
+  { name: "Sindhu", sport: "Badminton", scores: [21, 19, 25], age: 29 },
+  { name: "Neeraj", sport: "Javelin", scores: [88, 90, 85], age: 26 }
+];
+// Extracting the first athlete's name and sport using destructuring.
+let [{name,sport}] = athletes
+console.log(`${name} palys ${sport}` )
+ // Destructuring the scores of Neeraj, storing the first two separately and the rest in another variable.
+ let {scores,scores: [a,b]} = athletes[2]
+ let rest = [scores[2]]
+ console.log(a,b,rest)
+ 
+ //Merging all scores from all athletes into a single array using the spread operator.
+let all_scores = [...athletes[0].scores, ...athletes[1].scores, ...athletes[2].scores]
+ console.log(all_scores)
